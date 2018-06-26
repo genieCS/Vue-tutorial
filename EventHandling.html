@@ -1,0 +1,51 @@
+<div id="example-1">
+    <button v-on:click="counter += 1">Add 1</button>
+    <p>The button above has been clicked {{ counter }} times.</p>
+</div>
+
+<div id="example-2">
+    <!-- `greet` is the name of a method defined below -->
+    <button v-on:click="greet">Greet</button>
+</div>
+
+<div id="example-3">
+    <button v-on:click="say('hi')">Say hi</button>
+    <button v-on:click="say('what')">Say what</button>
+</div>
+
+<button v-on:click="warn('Form cannot be submitted yet.', $event)">
+    Submit
+</button>
+
+<a v-on:click.once="doThis"></a>
+
+<div v-on:scroll.passive="onScroll">...</div>
+
+<!-- only call `vm.submit()` when the `keyCode` is 13 -->
+<input v-on:keyup.13="submit">
+<!-- same as above -->
+<input v-on:keyup.enter="submit">
+<!-- also works for shorthand -->
+<input @keyup.enter="submit">
+
+<!-- key modifier aliases -->
+<!-- enter, tab, delete, esc, space, up, down, left, right -->
+
+<input @keyup.page-down="onPageDown">
+
+<!-- Alt + C -->
+<input @keyup.alt.67="clear">
+<!-- Ctrl + Click -->
+<div @click.ctrl="doSomething">Do something</div>
+
+<!-- this will fire even if Alt or Shift is also pressed -->
+<button @click.ctrl="onClick">A</button>
+
+<!-- this will only fire when Ctrl and no other keys are pressed -->
+<button @click.ctrl.exact="onCtrlClick">A</button>
+
+<!-- this will only fire when no system modifiers are pressed -->
+<button @click.exact="onClick">A</button>
+
+<!-- mouse button modifiers -->
+<!-- left, right, middle -->

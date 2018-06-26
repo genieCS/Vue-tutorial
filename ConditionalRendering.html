@@ -1,0 +1,60 @@
+<h1 v-if="ok">Yes</h1>
+<h1 v-else>No</h1>
+
+<template v-if="ok">
+    <h1>Title</h1>
+    <p>Paragraph 1</p>
+    <p>Paragraph 2</p>
+</template>
+
+<div v-if="Math.random() > 0.5">
+    Now you see me
+</div>
+<div v-else>
+    Now you don't
+</div>
+
+<div v-if="type === 'A'">
+    A
+</div>
+<div v-else-if="type === 'B'">
+    B
+</div>
+<div v-else-if="type === 'C'">
+    C
+</div>
+<div v-else>
+    Not A/B/C
+</div>
+
+<!-- Since both templates use the same elements, 
+    the <input> is not replaced - just its placeholder -->
+<template v-if="loginType === 'username'">
+    <label>Username</label>
+    <input placeholder="Enter your username">
+</template>
+<template v-else>
+    <label>Email</label>
+    <input placeholder="Enter your email address">
+</template>
+
+<!-- Don't re-use them -->
+<template v-if="loginType === 'username'">
+    <label>Username</label>
+    <input placeholder="Enter your username" key="username-input">
+</template>
+<template v-else>
+    <label>Email</label>
+    <input placeholder="Enter your email address" key="email-input">
+</template>
+
+<!-- an element with v-show will always be rendered and remain in the DOM; 
+    v-show only toggles the display CSS property of the element.-->
+<!-- Note that v-show doesn’t support the <template> element, 
+    nor does it work with v-else. -->
+<h1 v-show="ok">Hello!</h1>
+
+<!-- v-for has a higher priority than v-if -->
+
+
+

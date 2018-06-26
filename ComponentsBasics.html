@@ -1,0 +1,66 @@
+<div id="components-demo">
+    <button-counter></button-counter>
+</div>
+
+<blog-post title="My journey with Vue"></blog-post>
+<blog-post title="Blogging with Vue"></blog-post>
+<blog-post title="Why Vue is so fun"></blog-post>
+
+<blog-post
+  v-for="post in posts"
+  v-bind:key="post.id"
+  v-bind:title="post.title"
+></blog-post>
+
+<blog-post
+  v-for="post in posts"
+  v-bind:key="post.id"
+  v-bind:title="post.title"
+  v-bind:content="post.content"
+  v-bind:publishedAt="post.publishedAt"
+  v-bind:comments="post.comments"
+></blog-post>
+
+<blog-post
+  v-for="post in posts"
+  v-bind:key="post.id"
+  v-bind:post="post"
+  v-on:enlarge-text="postFontSize += 0.1"
+></blog-post>
+
+<div id="blog-posts-events-demo">
+    <div :style="{ fontSize: postFontSize + 'em' }">
+        <blog-post
+            v-for="post in posts"
+            v-bind:key="post.id"
+            v-bind:post="post"
+        ></blog-post>
+    </div>
+</div>
+
+<input v-model="searchText">
+
+<input
+  v-bind:value="searchText"
+  v-on:input="searchText = $event.target.value"
+>
+
+<custom-input
+  v-bind:value="searchText"
+  v-on:input="searchText = $event"
+></custom-input>
+
+<custom-input v-model="searchText"></custom-input>
+
+<alert-box>
+    Something bad happened.
+</alert-box>
+
+<table>
+    <blog-post-row></blog-post-row>
+</table>
+
+<table>
+    <tr is="blog-post-row"></tr>
+</table>
+
