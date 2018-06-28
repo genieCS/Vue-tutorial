@@ -1,5 +1,5 @@
-//If you know you’ll need a property later, 
-//but it starts out empty or non-existent, 
+//If you know you’ll need a property later,
+//but it starts out empty or non-existent,
 //you’ll need to set some initial value.
 data: {
     newTodoText: '',
@@ -7,20 +7,20 @@ data: {
     hideCompletedTodos: false,
     todos: [],
     error: null
-  }
+}
 
 var obj = {
     foo: 'bar'
-  }
-  
-  Object.freeze(obj)
-  
-  new Vue({
+}
+
+Object.freeze(obj)
+
+new Vue({
     el: '#app',
     data: obj
-  })
+})
 
-  var data = { a: 1 }
+var data = { a: 1 }
 var vm = new Vue({
   el: '#example',
   data: data
@@ -42,7 +42,7 @@ new Vue({
       // `this` points to the vm instance
       console.log('a is: ' + this.a)
     }
-  })
+})
 
   //Don’t use arrow functions on an options property or callback
   //Since arrow functions are bound to the parent context,
